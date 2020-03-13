@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express()
+require('dotenv').config()
 
 
 app.get('/', (req, res) => {
@@ -8,4 +9,4 @@ app.get('/', (req, res) => {
 
 const PORT = process.env.PORT || 3000
 
-app.listen(3000, () => console.log('connected to ' + PORT))
+app.listen(PORT, () => console.log('connected to ' + PORT))
