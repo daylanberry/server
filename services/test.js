@@ -18,4 +18,3 @@ const msg = {
   html: body,
 };
 sgMail.send(msg)
-.then((user) => console.log(user))

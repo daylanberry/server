@@ -4,7 +4,7 @@ import formFields from './formFields'
 import * as actions from '../../actions/index'
 import { withRouter } from 'react-router-dom'
 
-const SurveyFormReview = ({onCancel, formValues, submitSurvey, match, history}) => {
+const SurveyFormReview = ({onCancel, formValues, submitSurvey, history}) => {
 
   const reviewFields = formFields.map(({ name, label })=> {
     return (
@@ -30,7 +30,7 @@ const SurveyFormReview = ({onCancel, formValues, submitSurvey, match, history}) 
       </button>
       <button
         className='green white-text btn-flat right'
-        onClick={() => history.push('/surveys')}
+        onClick={() => submitSurvey(formValues, history)}
       >
         Send Survey
         <i className='material-icons right'>email</i>
@@ -44,4 +44,4 @@ const mapStateToProps = state => ({
 })
 
 
-export default withRouter(connect(mapStateToProps, actions)(SurveyFormReview))
+export default connect(mapStateToProps, actions)(withRouter(SurveyFormReview))

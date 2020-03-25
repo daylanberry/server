@@ -8,8 +8,8 @@ import thunk from 'redux-thunk'
 import logger from 'redux-logger'
 import App from './components/App.js'
 
-// import axios from 'axios'
-// window.axios = axios
+import axios from 'axios'
+window.axios = axios
 
 //logger
 const store = createStore(rootReducer, {}, applyMiddleware(thunk, logger))
