@@ -13,7 +13,10 @@ import * as actions from '../actions'
 class App extends React.Component {
 
   componentDidMount() {
+
     this.props.fetchUser()
+    .then((user) => this.props.fetchSurveys())
+    .catch(err => console.log(err))
   }
 
 
