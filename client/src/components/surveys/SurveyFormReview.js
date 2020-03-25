@@ -13,7 +13,6 @@ const SurveyFormReview = ({onCancel, formValues, submitSurvey, history}) => {
         <div>
           {formValues[name]}
         </div>
-        hi
       </div>
     )})
 
