@@ -9,7 +9,7 @@ class SurveyList extends React.Component {
   }
 
   componentDidMount() {
-    // this.props.fetchSurveys()
+    this.props.fetchSurveys()
   }
 
   renderSurveys = () => {
