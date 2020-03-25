@@ -1,10 +1,17 @@
 import axios from 'axios'
 import { FETCH_USER, FETCH_SURVEYS } from './types.js'
 
-export const fetchUser = () => async dispatch => {
-  const res = await axios.get('/api/currentUser')
+export const fetchUser = () => dispatch => {
+  axios.get('/api/currentUser')
+    .then((res) => dispatch({ type: FETCH_USER, payload: res.data}))
+    .then(() => {
+      axios.get('/api/surveys')
+        .then(res => dispatch({ type: FETCH_SURVEYS, payload: res.data}))
+        .catch(err => console.log(err))
+    })
+    .catch(err => console.log(err))
 
-  dispatch({type: FETCH_USER, payload: res.data})
+  //dispatch({type: FETCH_USER, payload: res.data})
 
 }
 
@@ -23,7 +30,7 @@ export const submitSurvey = (values, history) => async dispatch => {
 }
 
 export const fetchSurveys = () => async dispatch => {
-  const res = await axios.get('api/surveys')
+  const res = await axios.get('/api/surveys')
 
   dispatch({ type: FETCH_SURVEYS, payload: res.data})
 

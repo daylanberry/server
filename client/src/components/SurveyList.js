@@ -8,13 +8,13 @@ class SurveyList extends React.Component {
     super(props)
   }
 
-  componentDidMount() {
-    this.props.fetchSurveys()
-  }
+  // componentDidMount() {
+  //   this.props.fetchSurveys()
+  // }
 
   renderSurveys = () => {
 
-    return this.props.surveys.reverse().map(survey => {
+    return this.props.surveys.map(survey => {
       return (
         <div className='card blue darken-1' key={survey._id}>
           <div className='card-content text-white'>

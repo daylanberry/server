@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 import Header from './Header'
 import Landing from './Landing'
@@ -10,13 +10,14 @@ import * as actions from '../actions'
 
 
 
-const App = ({ fetchUser, user }) => {
+class App extends React.Component {
 
-  useEffect(() => {
-    console.log(user)
-    fetchUser()
-  }, [])
+  componentDidMount() {
+    this.props.fetchUser()
+  }
 
+
+  render(){
     return (
       <div className='container'>
         <BrowserRouter>
@@ -29,14 +30,9 @@ const App = ({ fetchUser, user }) => {
         </BrowserRouter>
       </div>
     )
-
+  }
 }
 
-const mapStateToProps = ({ auth }) => ({
-  user: auth
-
-})
 
 
-
-export default connect(mapStateToProps, actions)(App)
+export default connect(null, actions)(App)
